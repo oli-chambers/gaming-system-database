@@ -1,0 +1,20 @@
+I have added the postgresql.conf and pg_hba.conf files that will be used to setup the database
+
+Due to postgres running on localhost I did not need to include the server.key and server.crt files
+
+The installation instructions are included below:
+
+To install the .conf files, run these commands:
+sudo cp postgresql.conf /etc/postgresql/13/main/
+sudo cp pg_hba.conf /etc/postgresql/13/main/
+
+To create the postgres usr run this command:
+sudo -u postgres psql template1
+
+When in the psql shell, run this sql statement;
+ALTER USER postgres with encrypted password 'pass';
+
+Restart the service so the changes take effect:
+sudo systemctl restart postgresql.service
+
+
